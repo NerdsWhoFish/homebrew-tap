@@ -7,10 +7,10 @@ title: Homebrew Tap
 attributes:
   language: ruby
   public: true
-  tap: theoutdoorprogrammer/tap
+  tap: nerdswhofish/tap
 ---
 
-The Homebrew tap that distributes tools from this GitHub account, installed as `brew install theoutdoorprogrammer/tap/<name>`.
+The Homebrew tap that distributes tools from this GitHub account, installed as `brew install nerdswhofish/tap/<name>`.
 
 It ships **casks, not formulae**.
 Today there is exactly one, `Casks/ollie-hooks.rb`, which installs a prebuilt binary from a GitHub release rather than building from source, and whose `postflight` strips `com.apple.quarantine`.
@@ -23,7 +23,7 @@ An edit made directly here survives only until that tool's next release, then ge
 
 Adding a tool to the tap is therefore work done in *that tool's* repository, not this one:
 
-1. Add a `homebrew_casks:` block to its `.goreleaser.yaml`, pointing `repository:` at owner `TheOutdoorProgrammer`, name `homebrew-tap`, and taking its token from `{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}`. Pin `branch: main` explicitly, because GoReleaser cannot detect a default branch on a repository that does not have one yet.
+1. Add a `homebrew_casks:` block to its `.goreleaser.yaml`, pointing `repository:` at owner `NerdsWhoFish`, name `homebrew-tap`, and taking its token from `{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}`. Pin `branch: main` explicitly, because GoReleaser cannot detect a default branch on a repository that does not have one yet.
 2. Give that repository's release workflow a credential that can write here. The existing one mints a short-lived GitHub App installation token from `TAP_APP_ID` and `TAP_APP_PRIVATE_KEY`, scoped to this repository alone, and passes it in as `HOMEBREW_TAP_GITHUB_TOKEN`.
 3. Tag a release. The cask file shows up on its own.
 

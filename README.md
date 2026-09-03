@@ -1,2 +1,3 @@
 # homebrew-tap
-Homebrew tap for TheOutdoorProgrammer's tools
+
+Homebrew tap for NerdsWhoFish's tools
